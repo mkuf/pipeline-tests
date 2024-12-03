@@ -1,7 +1,6 @@
 name: matrix
 
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
   gen:
