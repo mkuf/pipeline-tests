@@ -1,5 +1,5 @@
 {
-    "includes": [
+    "include": [
         {
             "context": "klipper",
             "repo": "https://github.com/klipper3d/klipper",
