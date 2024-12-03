@@ -16,6 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: services: ${{ fromJSON(needs.gen.outputs.prind.platforms) }}
+        platform: ${{ fromJSON(needs.gen.outputs.prind.platforms) }}
     steps:
       - run: printenv
