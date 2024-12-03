@@ -6,15 +6,18 @@ on:
 jobs:
   gen:
     runs-on: ubuntu-latest
+    outputs:
+      prind: ${{ steps.prind.outputs.prind }}
     steps:
       - uses: actions/checkout@v4
-      - run: echo "prind=$(cat output.json)" >> "$GITHUB_OUTPUT"
+      - id: prind
+        run: echo "prind=$(cat output.json)" >> "$GITHUB_OUTPUT"
   
   matrix:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        services: ${{ fromJSON(needs.define-matrix.outputs.prind) }}
+        services: ${{ fromJSON(needs.gen.outputs.prind) }}
         platform:
           - linux/amd64
           - linux/arm/v6
