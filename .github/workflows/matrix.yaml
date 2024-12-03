@@ -18,4 +18,4 @@ jobs:
     strategy:
       matrix: ${{ fromJSON(needs.gen.outputs.prind) }}
     steps:
-      - run: echo ${{ matrix.services.context }} ${{ matrix.services.target }} ${{ matrix.services.repo }} ${{ matrix.services.version }} ${{ matrix.platform }}
+      - run: echo ${{ matrix.images.context }} ${{ matrix.images.target }} ${{ matrix.images.repo }} ${{ matrix.images.version }} ${{ matrix.platforms }}

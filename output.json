@@ -1,6 +1,6 @@
 {
     "platforms": ["linux/amd64", "linux/arm/v6"],
-    "services": [
+    "images": [
         {
             "context": "klipper",
             "repo": "https://github.com/klipper3d/klipper",
