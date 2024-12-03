@@ -1,0 +1,10 @@
+name: matrix
+
+on:
+  workflow_dispatch:
+
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world"
