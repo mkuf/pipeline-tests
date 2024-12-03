@@ -1,4 +1,4 @@
-name: matrix
+name: build-and-push
 
 on: push
 
@@ -12,12 +12,17 @@ jobs:
       - id: prind
         run: echo "prind=$(jq -c < output.json)" >> "$GITHUB_OUTPUT"
   
-  matrix:
+  build:
     runs-on: ubuntu-latest
-    needs: gen
+    needs:
+      - gen
     strategy:
-      matrix: 
-        platforms: ${{ fromJSON(needs.gen.outputs.prind).platforms }}
-        jobs: ${{ fromJSON(needs.gen.outputs.prind).jobs }}
+      matrix: ${{ fromJSON(needs.gen.outputs.prind) }}
     steps:
-      - run: echo ${{ matrix.jobs.context }} ${{ matrix.jobs.target }} ${{ matrix.jobs.repo }} ${{ matrix.jobs.version }} ${{ matrix.platforms }}
+      - run: echo ${{ matrix.build.context }} ${{ matrix.build.targets }} ${{ matrix.build.repo }} ${{ matrix.build.versions }} ${{ matrix.platforms }}
+
+  # push:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   strategy:
+  #     matrix:

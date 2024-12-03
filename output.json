@@ -1,16 +1,7 @@
 {
+    "context": ["klipper"],
+    "repo": ["https://github.com/klipper3d/klipper"],
     "platforms": ["linux/amd64", "linux/arm/v6"],
-    "jobs": [
-        {
-            "context": "klipper",
-            "repo": "https://github.com/klipper3d/klipper",
-            "version": "v0.12.0",
-            "target": "run"
-        },
-        {
-            "context": "moonraker",
-            "repo": "https://github.com/arksine/moonraker",
-            "version": "v0.12.0"
-        }
-    ]
+    "versions": ["v0.12.0", "v0.12.0-666-abcd"],
+    "targets": ["run", "tools", "hostmcu"]
 }
