@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: gen
     strategy:
-      matrix: ${{ fromJSON(needs.gen.outputs.prind) }}
+      matrix: 
+        platforms: ${{ fromJSON(needs.gen.outputs.prind).platforms }}
+        jobs: ${{ fromJSON(needs.gen.outputs.prind).jobs }}
     steps:
-      - run: echo ${{ matrix.images.context }} ${{ matrix.images.target }} ${{ matrix.images.repo }} ${{ matrix.images.version }} ${{ matrix.platforms }}
+      - run: echo ${{ matrix.jobs.context }} ${{ matrix.jobs.target }} ${{ matrix.jobs.repo }} ${{ matrix.jobs.version }} ${{ matrix.platforms }}
