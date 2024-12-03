@@ -4,25 +4,11 @@
             "context": "klipper",
             "repo": "https://github.com/klipper3d/klipper",
             "version": "v0.12.0",
-            "targets": ["run", "tools", "hostmcu"],
-            "platforms": [
-                "linux/amd64",
-                "linux/arm/v7",
-                "linux/arm/v6",
-                "linux/arm64/v8"
-            ]        
         },
         {
             "context": "moonraker",
             "repo": "https://github.com/arksine/moonraker",
             "version": "v0.12.0",
-            "targets": ["run"],
-            "platforms": [
-                "linux/amd64",
-                "linux/arm/v7",
-                "linux/arm/v6",
-                "linux/arm64/v8"
-            ]
         }
     ]
 }
