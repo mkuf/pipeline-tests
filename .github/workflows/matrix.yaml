@@ -14,7 +14,8 @@ jobs:
   
   matrix:
     runs-on: ubuntu-latest
+    needs: gen
     strategy:
       matrix: ${{ fromJSON(needs.gen.outputs.prind) }}
     steps:
-      - run: printenv
+      - run: echo ${{ matrix.services.context }} ${{ matrix.services.target }} ${{ matrix.services.repo }} ${{ matrix.services.version }} ${{ matrix.platform }}
