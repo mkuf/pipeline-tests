@@ -15,7 +15,6 @@ jobs:
   matrix:
     runs-on: ubuntu-latest
     strategy:
-      matrix:
-        platform: ${{ fromJSON(needs.gen.outputs.prind.platforms) }}
+      matrix: ${{ fromJSON(needs.gen.outputs.prind) }}
     steps:
       - run: printenv
