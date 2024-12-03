@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: prind
-        run: echo "prind=$(cat output.json)" >> "$GITHUB_OUTPUT"
+        run: echo "prind=$(jq -c < output.json)" >> "$GITHUB_OUTPUT"
   
   matrix:
     runs-on: ubuntu-latest
